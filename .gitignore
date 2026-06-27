@@ -7,6 +7,7 @@ sample/node_modules
 frontend/dist
 
 # Generated files (run `cd sample && node generate_pdf.js` to recreate)
+# The copy in frontend/public is committed so the demo button works on Netlify
 sample/*.pdf
 deno.lock
 

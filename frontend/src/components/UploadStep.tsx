@@ -1,4 +1,4 @@
-import { useCallback } from 'react'
+import { useCallback, useState } from 'react'
 import { useDropzone } from 'react-dropzone'
 
 interface Props {
@@ -14,6 +14,22 @@ export default function UploadStep({ loading, error, onFileAccepted }: Props) {
         },
         [onFileAccepted],
     )
+
+    const [sampleLoading, setSampleLoading] = useState(false)
+
+    const handleUseSample = useCallback(async () => {
+        setSampleLoading(true)
+        try {
+            const res = await fetch('/banking_contact_authorization.pdf')
+            const blob = await res.blob()
+            const file = new File([blob], 'banking_contact_authorization.pdf', {
+                type: 'application/pdf',
+            })
+            onFileAccepted(file)
+        } finally {
+            setSampleLoading(false)
+        }
+    }, [onFileAccepted])
 
     const { getRootProps, getInputProps, isDragActive } = useDropzone({
         onDrop,
@@ -112,6 +128,34 @@ export default function UploadStep({ loading, error, onFileAccepted }: Props) {
                         </div>
                     )}
                 </div>
+
+                {/* Demo shortcut */}
+                {!loading && (
+                    <div className="mt-5 flex items-center gap-3">
+                        <div className="flex-1 h-px bg-gray-200" />
+                        <span className="text-xs text-gray-400">or</span>
+                        <div className="flex-1 h-px bg-gray-200" />
+                    </div>
+                )}
+                {!loading && (
+                    <button
+                        onClick={handleUseSample}
+                        disabled={sampleLoading}
+                        className="mt-3 w-full flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl border border-gray-200 bg-white hover:bg-gray-50 text-sm text-gray-600 font-medium transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                    >
+                        {sampleLoading ? (
+                            <svg className="animate-spin w-4 h-4 text-gray-400" fill="none" viewBox="0 0 24 24">
+                                <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
+                                <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8H4z" />
+                            </svg>
+                        ) : (
+                            <svg className="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                            </svg>
+                        )}
+                        {sampleLoading ? 'Loading…' : 'Use sample file  (banking_contact_authorization.pdf)'}
+                    </button>
+                )}
 
                 {/* Error */}
                 {error && (
