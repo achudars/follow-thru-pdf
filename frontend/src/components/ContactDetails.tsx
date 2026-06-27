@@ -23,11 +23,11 @@ function Field({
     label,
     optional,
     children,
-}: {
+}: Readonly<{
     label: string
     optional?: boolean
     children: React.ReactNode
-}) {
+}>) {
     return (
         <div className="space-y-1">
             <label className="block text-xs text-blue-600 font-medium">
@@ -39,7 +39,7 @@ function Field({
     )
 }
 
-export default function ContactDetails({ contact, onChange }: Props) {
+export default function ContactDetails({ contact, onChange }: Readonly<Props>) {
     const set = <K extends keyof Contact>(key: K, value: Contact[K]) =>
         onChange({ ...contact, [key]: value })
 
