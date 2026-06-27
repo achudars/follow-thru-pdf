@@ -1,0 +1,11 @@
+{
+  "name": "follow-thru-pdf-sample",
+  "private": true,
+  "version": "0.1.0",
+  "scripts": {
+    "generate": "node generate_pdf.js"
+  },
+  "dependencies": {
+    "pdfkit": "^0.15.0"
+  }
+}

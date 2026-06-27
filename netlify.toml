@@ -1,0 +1,27 @@
+[build]
+  command   = "cd frontend && npm ci && npm run build"
+  publish   = "frontend/dist"
+
+[functions]
+  directory    = "netlify/functions"
+  node_bundler = "esbuild"
+
+# /api/parse  →  /.netlify/functions/parse
+[[redirects]]
+  from   = "/api/:func"
+  to     = "/.netlify/functions/:func"
+  status = 200
+
+# SPA fallback — keep last
+[[redirects]]
+  from   = "/*"
+  to     = "/index.html"
+  status = 200
+
+# Local dev: run Vite on 5173, proxy through Netlify Dev on 8888
+# Uses --prefix to avoid `cd` which fails on Windows
+[dev]
+  command      = "npm --prefix frontend run dev"
+  targetPort   = 5173
+  port         = 8888
+  autoLaunch   = false

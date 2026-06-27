@@ -1,0 +1,18 @@
+# Dependencies
+node_modules
+frontend/node_modules
+sample/node_modules
+
+# Build output
+frontend/dist
+
+# Generated files (run `cd sample && node generate_pdf.js` to recreate)
+sample/*.pdf
+deno.lock
+
+# Netlify local cache
+.netlify
+
+# Logs
+*.log
+npm-debug.log*
