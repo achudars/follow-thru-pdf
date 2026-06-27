@@ -52,7 +52,8 @@ const VALID_ACTIONS = new Set(['Add', 'Edit', 'Delete', 'No Change'])
 const START_MARKER = '===CONTACT_DATA_BEGIN==='
 const END_MARKER = '===CONTACT_DATA_END==='
 
-function parseSection(text: string, fileName: string): ParsedDocument {
+/** Exported for unit tests */
+export function parseSection(text: string, fileName: string): ParsedDocument {
   const si = text.indexOf(START_MARKER)
   const ei = text.indexOf(END_MARKER)
 

@@ -1,0 +1,68 @@
+
+
+Banking Contact Authorization Form
+New York and London Bank Offices
+This Form allows the Client’s Authorized Signer(s) or Delegate Authorized Signer(s) to designate Banking Contacts with specific authorities and 
+provide contact details. This Form applies to all Accounts and Services listed herein. Capitalized terms have the meanings in the Master or Global 
+Transaction Banking Agreement (“Account Terms”).
+CLIENT ENTITY
+(If you need to add more entities, refer to the last page of this Form)
+BANKING CONTACT AUTHORITIES
+•  Payment Requests: An individual with authority to initiate payments via emails, modify (amend, recall, reject, return) and void transactions on 
+behalf of the Client, and inquire about transaction details.
+•  Callbacks: An individual with authority to receive callbacks to confirm the validity of payment instructions and other requests on behalf of the 
+Client.
+•  Communications and Notices: An individual with authority to receive bank communications, rate changes, product/service enhancements, and 
+account/transaction status inquiries.
+BANKING CONTACT DETAILS
+AUTHORITIES
+Please provide current information for your Banking Contacts. If adding or modifying a Contact, complete all required* fields. If removing, complete “Full Legal 
+Name” only. *Fields not marked "optional" are required.
+ActionFull Legal NamePrimary PhoneEmail AddressPRCBCN
+AddName Lastname 14324324324321contact1@example.com
+&&&
+Managing Director—USA
+AddName Lastname 2432432432432jdoe@jonnyd.com
+&&&
+CEO—USA
+EditName Lastname 34324324324323contact3@example.com
+&&&
+VP Finance4320000001United Kingdom
+No ChangeName Lastname 44324324324324contact4@example.com
+&&&
+Director—USA
+AddName Lastname 54324324324325contact5@example.com
+&&&
+CFO—Germany
+DeleteName Lastname 64324324324326contact6@example.com
+&&&
+Treasurer4320000002USA
+AddName Lastname 74324324324327contact7@example.com
+&&&
+Controller—France
+SIGNER AUTHORIZATION
+AUTHORITIES
+Authorized Signers and Delegate Authorized Signers do not need to be listed as Banking Contacts.
+ActionFull Legal NamePrimary PhoneEmail AddressPRCBCN
+AddName Lastname 15555555551signer1@example.com
+&&&
+President—USA
+AddName Lastname 25555555552signer2@example.com
+&&&
+SVP Operations5555555562USA
+Page 1 of 2  •  Confidential — For authorized use only
+
+MACHINE-READABLE CONTACT DATA — DO NOT MODIFY
+===CONTACT_DATA_BEGIN===
+group:Banking Contact Authorization
+contact:Add|Name Lastname 1|4324324324321|contact1@example.com|Managing Director||USA|false|false|false|1|290|30
+contact:Add|Name Lastname 2|432432432432|jdoe@jonnyd.com|CEO||USA|false|false|false|1|320|30
+contact:Edit|Name Lastname 3|4324324324323|contact3@example.com|VP Finance|4320000001|United Kingdom|true|false|true|1|350|30
+contact:No Change|Name Lastname 4|4324324324324|contact4@example.com|Director||USA|false|true|false|1|380|30
+contact:Add|Name Lastname 5|4324324324325|contact5@example.com|CFO||Germany|true|true|true|1|410|30
+contact:Delete|Name Lastname 6|4324324324326|contact6@example.com|Treasurer|4320000002|USA|false|false|true|1|440|30
+contact:Add|Name Lastname 7|4324324324327|contact7@example.com|Controller||France|true|false|false|1|470|30
+group:Signer Authorization
+contact:Add|Name Lastname 1|5555555551|signer1@example.com|President||USA|true|true|true|1|568|30
+contact:Add|Name Lastname 2|5555555552|signer2@example.com|SVP Operations|5555555562|USA|true|true|true|1|598|30
+===CONTACT_DATA_END===
