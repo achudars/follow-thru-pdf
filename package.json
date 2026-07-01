@@ -11,7 +11,7 @@
   "dependencies": {
     "@netlify/functions": "^2.8.2",
     "pdf-parse": "^1.1.4",
-    "uuid": "^10.0.0"
+    "uuid": "^14.0.0"
   },
   "devDependencies": {
     "@types/pdf-parse": "^1.1.5",
