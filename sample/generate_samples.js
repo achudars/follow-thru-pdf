@@ -36,24 +36,189 @@ const CHK = (v) => (v ? "\u2612" : "\u2610");
 // ── Contact data pools ───────────────────────────────────────────────────────
 
 const BANKING = [
-  { action: "Add",       name: "Alice Hartwell",     phone: "4100000001", email: "a.hartwell@corp.com",   title: "Managing Director", alt: "",           country: "USA",            pr: false, cb: false, cn: false },
-  { action: "Add",       name: "Bernard Liu",        phone: "4100000002", email: "b.liu@corp.com",        title: "CEO",               alt: "",           country: "USA",            pr: false, cb: false, cn: false },
-  { action: "Edit",      name: "Carla Rossi",        phone: "4100000003", email: "c.rossi@corp.com",      title: "VP Finance",        alt: "4100000031", country: "United Kingdom", pr: true,  cb: false, cn: true  },
-  { action: "No Change", name: "David Okonkwo",      phone: "4100000004", email: "d.okonkwo@corp.com",    title: "Director",          alt: "",           country: "USA",            pr: false, cb: true,  cn: false },
-  { action: "Add",       name: "Elena Vasquez",      phone: "4100000005", email: "e.vasquez@corp.com",    title: "CFO",               alt: "",           country: "Germany",        pr: true,  cb: true,  cn: true  },
-  { action: "Delete",    name: "Frank Müller",        phone: "4100000006", email: "f.muller@corp.com",     title: "Treasurer",         alt: "4100000061", country: "USA",            pr: false, cb: false, cn: true  },
-  { action: "Add",       name: "Grace Tanaka",       phone: "4100000007", email: "g.tanaka@corp.com",     title: "Controller",        alt: "",           country: "France",         pr: true,  cb: false, cn: false },
-  { action: "Edit",      name: "Henry Osei",         phone: "4100000008", email: "h.osei@corp.com",       title: "Head of Treasury",  alt: "4100000081", country: "Ghana",          pr: false, cb: true,  cn: true  },
-  { action: "Add",       name: "Isabelle Moreau",    phone: "4100000009", email: "i.moreau@corp.com",     title: "Senior Analyst",    alt: "",           country: "France",         pr: true,  cb: false, cn: false },
-  { action: "No Change", name: "James Caldwell",     phone: "4100000010", email: "j.caldwell@corp.com",   title: "Associate Director",alt: "",           country: "Canada",         pr: false, cb: false, cn: true  },
+  {
+    action: "Add",
+    name: "Alice Hartwell",
+    phone: "4100000001",
+    email: "a.hartwell@corp.com",
+    title: "Managing Director",
+    alt: "",
+    country: "USA",
+    pr: false,
+    cb: false,
+    cn: false,
+  },
+  {
+    action: "Add",
+    name: "Bernard Liu",
+    phone: "4100000002",
+    email: "b.liu@corp.com",
+    title: "CEO",
+    alt: "",
+    country: "USA",
+    pr: false,
+    cb: false,
+    cn: false,
+  },
+  {
+    action: "Edit",
+    name: "Carla Rossi",
+    phone: "4100000003",
+    email: "c.rossi@corp.com",
+    title: "VP Finance",
+    alt: "4100000031",
+    country: "United Kingdom",
+    pr: true,
+    cb: false,
+    cn: true,
+  },
+  {
+    action: "No Change",
+    name: "David Okonkwo",
+    phone: "4100000004",
+    email: "d.okonkwo@corp.com",
+    title: "Director",
+    alt: "",
+    country: "USA",
+    pr: false,
+    cb: true,
+    cn: false,
+  },
+  {
+    action: "Add",
+    name: "Elena Vasquez",
+    phone: "4100000005",
+    email: "e.vasquez@corp.com",
+    title: "CFO",
+    alt: "",
+    country: "Germany",
+    pr: true,
+    cb: true,
+    cn: true,
+  },
+  {
+    action: "Delete",
+    name: "Frank Müller",
+    phone: "4100000006",
+    email: "f.muller@corp.com",
+    title: "Treasurer",
+    alt: "4100000061",
+    country: "USA",
+    pr: false,
+    cb: false,
+    cn: true,
+  },
+  {
+    action: "Add",
+    name: "Grace Tanaka",
+    phone: "4100000007",
+    email: "g.tanaka@corp.com",
+    title: "Controller",
+    alt: "",
+    country: "France",
+    pr: true,
+    cb: false,
+    cn: false,
+  },
+  {
+    action: "Edit",
+    name: "Henry Osei",
+    phone: "4100000008",
+    email: "h.osei@corp.com",
+    title: "Head of Treasury",
+    alt: "4100000081",
+    country: "Ghana",
+    pr: false,
+    cb: true,
+    cn: true,
+  },
+  {
+    action: "Add",
+    name: "Isabelle Moreau",
+    phone: "4100000009",
+    email: "i.moreau@corp.com",
+    title: "Senior Analyst",
+    alt: "",
+    country: "France",
+    pr: true,
+    cb: false,
+    cn: false,
+  },
+  {
+    action: "No Change",
+    name: "James Caldwell",
+    phone: "4100000010",
+    email: "j.caldwell@corp.com",
+    title: "Associate Director",
+    alt: "",
+    country: "Canada",
+    pr: false,
+    cb: false,
+    cn: true,
+  },
 ];
 
 const SIGNERS = [
-  { action: "Add", name: "Katherine Brennan",  phone: "5200000001", email: "k.brennan@corp.com",  title: "President",          alt: "",           country: "USA",  pr: true, cb: true, cn: true },
-  { action: "Add", name: "Luca Ferrari",       phone: "5200000002", email: "l.ferrari@corp.com",  title: "SVP Operations",     alt: "5200000021", country: "USA",  pr: true, cb: true, cn: true },
-  { action: "Add", name: "Maya Patel",         phone: "5200000003", email: "m.patel@corp.com",    title: "Chief Risk Officer", alt: "",           country: "India",pr: true, cb: false,cn: true },
-  { action: "Add", name: "Nathan Brooks",      phone: "5200000004", email: "n.brooks@corp.com",   title: "COO",                alt: "5200000041", country: "USA",  pr: true, cb: true, cn: false},
-  { action: "Add", name: "Olivia Standish",    phone: "5200000005", email: "o.standish@corp.com", title: "Deputy President",   alt: "",           country: "UK",   pr: true, cb: true, cn: true },
+  {
+    action: "Add",
+    name: "Katherine Brennan",
+    phone: "5200000001",
+    email: "k.brennan@corp.com",
+    title: "President",
+    alt: "",
+    country: "USA",
+    pr: true,
+    cb: true,
+    cn: true,
+  },
+  {
+    action: "Add",
+    name: "Luca Ferrari",
+    phone: "5200000002",
+    email: "l.ferrari@corp.com",
+    title: "SVP Operations",
+    alt: "5200000021",
+    country: "USA",
+    pr: true,
+    cb: true,
+    cn: true,
+  },
+  {
+    action: "Add",
+    name: "Maya Patel",
+    phone: "5200000003",
+    email: "m.patel@corp.com",
+    title: "Chief Risk Officer",
+    alt: "",
+    country: "India",
+    pr: true,
+    cb: false,
+    cn: true,
+  },
+  {
+    action: "Add",
+    name: "Nathan Brooks",
+    phone: "5200000004",
+    email: "n.brooks@corp.com",
+    title: "COO",
+    alt: "5200000041",
+    country: "USA",
+    pr: true,
+    cb: true,
+    cn: false,
+  },
+  {
+    action: "Add",
+    name: "Olivia Standish",
+    phone: "5200000005",
+    email: "o.standish@corp.com",
+    title: "Deputy President",
+    alt: "",
+    country: "UK",
+    pr: true,
+    cb: true,
+    cn: true,
+  },
 ];
 
 // ── Drawing helpers ──────────────────────────────────────────────────────────
@@ -73,32 +238,59 @@ function sectionBanner(doc, y, label, color = "#1a3c5e") {
 function colHeader(doc, y) {
   doc.rect(ML, y, CW, COL_HDR_H).fill("#E8F0FE");
   doc.fillColor("#1a3c5e").fontSize(7.5).font("Helvetica-Bold");
-  doc.text("Action",         COL_ACTION, y + 7, { width: 55,  lineBreak: false });
-  doc.text("Full Legal Name",COL_NAME,   y + 7, { width: 130, lineBreak: false });
-  doc.text("Primary Phone",  COL_PHONE,  y + 7, { width: 100, lineBreak: false });
-  doc.text("Email Address",  COL_EMAIL,  y + 7, { width: 115, lineBreak: false });
-  doc.text("PR", COL_PR, y + 7, { width: 20, lineBreak: false, align: "center" });
-  doc.text("CB", COL_CB, y + 7, { width: 20, lineBreak: false, align: "center" });
-  doc.text("CN", COL_CN, y + 7, { width: 52, lineBreak: false, align: "center" });
+  doc.text("Action", COL_ACTION, y + 7, { width: 55, lineBreak: false });
+  doc.text("Full Legal Name", COL_NAME, y + 7, {
+    width: 130,
+    lineBreak: false,
+  });
+  doc.text("Primary Phone", COL_PHONE, y + 7, { width: 100, lineBreak: false });
+  doc.text("Email Address", COL_EMAIL, y + 7, { width: 115, lineBreak: false });
+  doc.text("PR", COL_PR, y + 7, {
+    width: 20,
+    lineBreak: false,
+    align: "center",
+  });
+  doc.text("CB", COL_CB, y + 7, {
+    width: 20,
+    lineBreak: false,
+    align: "center",
+  });
+  doc.text("CN", COL_CN, y + 7, {
+    width: 52,
+    lineBreak: false,
+    align: "center",
+  });
 }
 
 function contactRow(doc, contact, y) {
   doc.rect(ML, y, CW, ROW_H).fill("#FFFFFF");
   const r1 = y + 6;
   doc.fillColor("#111827").fontSize(9).font("Helvetica");
-  doc.text(contact.action, COL_ACTION, r1, { width: 55,  lineBreak: false });
-  doc.text(contact.name,   COL_NAME,   r1, { width: 130, lineBreak: false });
-  doc.text(contact.phone,  COL_PHONE,  r1, { width: 100, lineBreak: false });
-  doc.text(contact.email,  COL_EMAIL,  r1, { width: 115, lineBreak: false });
+  doc.text(contact.action, COL_ACTION, r1, { width: 55, lineBreak: false });
+  doc.text(contact.name, COL_NAME, r1, { width: 130, lineBreak: false });
+  doc.text(contact.phone, COL_PHONE, r1, { width: 100, lineBreak: false });
+  doc.text(contact.email, COL_EMAIL, r1, { width: 115, lineBreak: false });
   doc.fontSize(10);
-  doc.text(CHK(contact.pr), COL_PR, r1, { width: 20, lineBreak: false, align: "center" });
-  doc.text(CHK(contact.cb), COL_CB, r1, { width: 20, lineBreak: false, align: "center" });
-  doc.text(CHK(contact.cn), COL_CN, r1, { width: 52, lineBreak: false, align: "center" });
+  doc.text(CHK(contact.pr), COL_PR, r1, {
+    width: 20,
+    lineBreak: false,
+    align: "center",
+  });
+  doc.text(CHK(contact.cb), COL_CB, r1, {
+    width: 20,
+    lineBreak: false,
+    align: "center",
+  });
+  doc.text(CHK(contact.cn), COL_CN, r1, {
+    width: 52,
+    lineBreak: false,
+    align: "center",
+  });
   const r2 = y + 18;
   doc.fillColor("#6b7280").fontSize(8).font("Helvetica");
-  doc.text(contact.title,       COL_NAME,  r2, { width: 130, lineBreak: false });
-  doc.text(contact.alt || "—",  COL_PHONE, r2, { width: 100, lineBreak: false });
-  doc.text(contact.country,     COL_EMAIL, r2, { width: 115, lineBreak: false });
+  doc.text(contact.title, COL_NAME, r2, { width: 130, lineBreak: false });
+  doc.text(contact.alt || "—", COL_PHONE, r2, { width: 100, lineBreak: false });
+  doc.text(contact.country, COL_EMAIL, r2, { width: 115, lineBreak: false });
   hLine(doc, y + ROW_H);
   return y + ROW_H;
 }
@@ -108,7 +300,10 @@ function pageHeader(doc, title = "Banking Contact Authorization Form") {
   doc.fillColor("#FFFFFF").fontSize(15).font("Helvetica-Bold");
   doc.text(title, ML, 13, { width: CW });
   doc.fillColor("#93c5fd").fontSize(7.5).font("Helvetica");
-  doc.text("New York and London Bank Offices", ML, 32, { width: 180, lineBreak: false });
+  doc.text("New York and London Bank Offices", ML, 32, {
+    width: 180,
+    lineBreak: false,
+  });
 }
 
 function introParagraph(doc) {
@@ -117,16 +312,27 @@ function introParagraph(doc) {
     "This Form allows the Client's Authorized Signer(s) or Delegate Authorized Signer(s) to " +
       "designate Banking Contacts with specific authorities and provide contact details. " +
       "This Form applies to all Accounts and Services listed herein. Capitalized terms have the " +
-      "meanings in the Master or Global Transaction Banking Agreement (\"Account Terms\").",
-    ML, 56, { width: CW },
+      'meanings in the Master or Global Transaction Banking Agreement ("Account Terms").',
+    ML,
+    56,
+    { width: CW },
   );
 }
 
 function authoritiesSection(doc) {
   hLine(doc, 100);
-  doc.fillColor("#1a3c5e").fontSize(10).font("Helvetica-Bold").text("CLIENT ENTITY", ML, 108);
+  doc
+    .fillColor("#1a3c5e")
+    .fontSize(10)
+    .font("Helvetica-Bold")
+    .text("CLIENT ENTITY", ML, 108);
   doc.fillColor("#6b7280").fontSize(7.5).font("Helvetica");
-  doc.text("(If you need to add more entities, refer to the last page of this Form)", ML + 105, 109, { width: 340 });
+  doc.text(
+    "(If you need to add more entities, refer to the last page of this Form)",
+    ML + 105,
+    109,
+    { width: 340 },
+  );
   hLine(doc, 130);
   doc.fillColor("#1a3c5e").fontSize(10).font("Helvetica-Bold");
   doc.text("BANKING CONTACT AUTHORITIES", ML, 138);
@@ -149,12 +355,22 @@ function addFillerPage(doc, pageNum, totalPages) {
   doc.fillColor("#9ca3af").fontSize(8).font("Helvetica");
   doc.text(
     "Complete this section if you need to list contacts for additional client entities beyond those on page 1.",
-    ML, 76, { width: CW },
+    ML,
+    76,
+    { width: CW },
   );
   hLine(doc, 100);
-  doc.fillColor("#1a3c5e").fontSize(9).font("Helvetica-Bold").text("CLIENT ENTITY NAME", ML, 108);
+  doc
+    .fillColor("#1a3c5e")
+    .fontSize(9)
+    .font("Helvetica-Bold")
+    .text("CLIENT ENTITY NAME", ML, 108);
   doc.rect(ML, 120, CW, 20).strokeColor("#CCCCCC").lineWidth(0.5).stroke();
-  doc.fillColor("#1a3c5e").fontSize(9).font("Helvetica-Bold").text("ADDITIONAL BANKING CONTACTS", ML, 150);
+  doc
+    .fillColor("#1a3c5e")
+    .fontSize(9)
+    .font("Helvetica-Bold")
+    .text("ADDITIONAL BANKING CONTACTS", ML, 150);
   colHeader(doc, 165);
   hLine(doc, 165 + COL_HDR_H);
   // Empty rows for manual entry
@@ -167,7 +383,9 @@ function addFillerPage(doc, pageNum, totalPages) {
   doc.fillColor("#9ca3af").fontSize(6.5).font("Helvetica");
   doc.text(
     `Page ${pageNum} of ${totalPages}  •  Confidential — For authorized use only`,
-    ML, 764, { width: CW, align: "center" },
+    ML,
+    764,
+    { width: CW, align: "center" },
   );
 }
 
@@ -192,14 +410,26 @@ function machineReadablePage(doc, groups) {
   mr("===CONTACT_DATA_END===");
 }
 
+// ── Stream-finish helper ─────────────────────────────────────────────────────
+
+/** Pipe doc to a write stream and return a Promise that resolves when fully flushed. */
+function finishOn(doc, outputPath) {
+  return new Promise((resolve, reject) => {
+    const stream = fs.createWriteStream(outputPath);
+    doc.pipe(stream);
+    stream.on("finish", resolve);
+    stream.on("error", reject);
+  });
+}
+
 // ── SCENARIO 1: Existing (banking + signers, 2 pages) ────────────────────────
 
-function generateScenario1(outputPath) {
+async function generateScenario1(outputPath) {
   const bankingContacts = BANKING.slice(0, 7);
-  const signerContacts  = SIGNERS.slice(0, 2);
+  const signerContacts = SIGNERS.slice(0, 2);
 
   const doc = new PDFDocument({ margin: 0, size: "A4" });
-  doc.pipe(fs.createWriteStream(outputPath));
+  const done = finishOn(doc, outputPath);
 
   pageHeader(doc);
   introParagraph(doc);
@@ -211,7 +441,9 @@ function generateScenario1(outputPath) {
   doc.text(
     "Please provide current information for your Banking Contacts. " +
       "If adding or modifying a Contact, complete all required* fields.",
-    ML, 252, { width: CW },
+    ML,
+    252,
+    { width: CW },
   );
 
   const colHdrY = 268;
@@ -231,7 +463,9 @@ function generateScenario1(outputPath) {
   doc.fillColor("#374151").fontSize(7).font("Helvetica");
   doc.text(
     "Authorized Signers and Delegate Authorized Signers do not need to be listed as Banking Contacts.",
-    ML, signerBannerY + COL_HDR_H + 2, { width: CW },
+    ML,
+    signerBannerY + COL_HDR_H + 2,
+    { width: CW },
   );
 
   const signerColHdrY = signerBannerY + COL_HDR_H + 14;
@@ -247,24 +481,40 @@ function generateScenario1(outputPath) {
 
   hLine(doc, curY + 6);
   doc.fillColor("#9ca3af").fontSize(6.5).font("Helvetica");
-  doc.text("Page 1 of 2  •  Confidential — For authorized use only", ML, curY + 10, { width: CW, align: "center" });
+  doc.text(
+    "Page 1 of 2  •  Confidential — For authorized use only",
+    ML,
+    curY + 10,
+    { width: CW, align: "center" },
+  );
 
   machineReadablePage(doc, [
-    { label: "Banking Contact Authorization", contacts: bankingContacts, positions: bankingPositions },
-    { label: "Signer Authorization",          contacts: signerContacts,  positions: signerPositions  },
+    {
+      label: "Banking Contact Authorization",
+      contacts: bankingContacts,
+      positions: bankingPositions,
+    },
+    {
+      label: "Signer Authorization",
+      contacts: signerContacts,
+      positions: signerPositions,
+    },
   ]);
 
   doc.end();
-  console.log(`Generated: ${path.resolve(outputPath)}  (banking:${bankingContacts.length} signers:${signerContacts.length})`);
+  await done;
+  console.log(
+    `Generated: ${path.resolve(outputPath)}  (banking:${bankingContacts.length} signers:${signerContacts.length})`,
+  );
 }
 
 // ── SCENARIO 2: Authorised signers only ─────────────────────────────────────
 
-function generateScenario2(outputPath) {
+async function generateScenario2(outputPath) {
   const signerContacts = SIGNERS.slice(0, 3);
 
   const doc = new PDFDocument({ margin: 0, size: "A4" });
-  doc.pipe(fs.createWriteStream(outputPath));
+  const done = finishOn(doc, outputPath);
 
   pageHeader(doc);
   introParagraph(doc);
@@ -276,7 +526,9 @@ function generateScenario2(outputPath) {
   doc.fillColor("#374151").fontSize(7).font("Helvetica");
   doc.text(
     "This form contains Authorized Signers only. No Banking Contact rows are included.",
-    ML, signerBannerY + COL_HDR_H + 2, { width: CW },
+    ML,
+    signerBannerY + COL_HDR_H + 2,
+    { width: CW },
   );
 
   const signerColHdrY = signerBannerY + COL_HDR_H + 14;
@@ -292,23 +544,35 @@ function generateScenario2(outputPath) {
 
   hLine(doc, curY + 6);
   doc.fillColor("#9ca3af").fontSize(6.5).font("Helvetica");
-  doc.text("Page 1 of 2  •  Confidential — For authorized use only", ML, curY + 10, { width: CW, align: "center" });
+  doc.text(
+    "Page 1 of 2  •  Confidential — For authorized use only",
+    ML,
+    curY + 10,
+    { width: CW, align: "center" },
+  );
 
   machineReadablePage(doc, [
-    { label: "Signer Authorization", contacts: signerContacts, positions: signerPositions },
+    {
+      label: "Signer Authorization",
+      contacts: signerContacts,
+      positions: signerPositions,
+    },
   ]);
 
   doc.end();
-  console.log(`Generated: ${path.resolve(outputPath)}  (signers only: ${signerContacts.length})`);
+  await done;
+  console.log(
+    `Generated: ${path.resolve(outputPath)}  (signers only: ${signerContacts.length})`,
+  );
 }
 
 // ── SCENARIO 3: Banking contacts only ───────────────────────────────────────
 
-function generateScenario3(outputPath) {
+async function generateScenario3(outputPath) {
   const bankingContacts = BANKING.slice(0, 5);
 
   const doc = new PDFDocument({ margin: 0, size: "A4" });
-  doc.pipe(fs.createWriteStream(outputPath));
+  const done = finishOn(doc, outputPath);
 
   pageHeader(doc);
   introParagraph(doc);
@@ -319,7 +583,9 @@ function generateScenario3(outputPath) {
   doc.fillColor("#374151").fontSize(7).font("Helvetica");
   doc.text(
     "This form contains Banking Contacts only. No Authorized Signer rows are included.",
-    ML, 252, { width: CW },
+    ML,
+    252,
+    { width: CW },
   );
 
   const colHdrY = 268;
@@ -335,25 +601,37 @@ function generateScenario3(outputPath) {
 
   hLine(doc, curY + 6);
   doc.fillColor("#9ca3af").fontSize(6.5).font("Helvetica");
-  doc.text("Page 1 of 2  •  Confidential — For authorized use only", ML, curY + 10, { width: CW, align: "center" });
+  doc.text(
+    "Page 1 of 2  •  Confidential — For authorized use only",
+    ML,
+    curY + 10,
+    { width: CW, align: "center" },
+  );
 
   machineReadablePage(doc, [
-    { label: "Banking Contact Authorization", contacts: bankingContacts, positions: bankingPositions },
+    {
+      label: "Banking Contact Authorization",
+      contacts: bankingContacts,
+      positions: bankingPositions,
+    },
   ]);
 
   doc.end();
-  console.log(`Generated: ${path.resolve(outputPath)}  (banking only: ${bankingContacts.length})`);
+  await done;
+  console.log(
+    `Generated: ${path.resolve(outputPath)}  (banking only: ${bankingContacts.length})`,
+  );
 }
 
 // ── SCENARIO 4: Both sections, 10 pages ─────────────────────────────────────
 
-function generateScenario4(outputPath) {
+async function generateScenario4(outputPath) {
   const bankingContacts = BANKING.slice(0, 10);
-  const signerContacts  = SIGNERS.slice(0, 5);
+  const signerContacts = SIGNERS.slice(0, 5);
   const TOTAL_PAGES = 10;
 
   const doc = new PDFDocument({ margin: 0, size: "A4" });
-  doc.pipe(fs.createWriteStream(outputPath));
+  const done = finishOn(doc, outputPath);
 
   // Page 1
   pageHeader(doc);
@@ -366,7 +644,9 @@ function generateScenario4(outputPath) {
   doc.text(
     "Please provide current information for your Banking Contacts. " +
       "If adding or modifying a Contact, complete all required* fields.",
-    ML, 252, { width: CW },
+    ML,
+    252,
+    { width: CW },
   );
 
   const colHdrY = 268;
@@ -386,7 +666,9 @@ function generateScenario4(outputPath) {
   doc.fillColor("#374151").fontSize(7).font("Helvetica");
   doc.text(
     "Authorized Signers and Delegate Authorized Signers do not need to be listed as Banking Contacts.",
-    ML, signerBannerY + COL_HDR_H + 2, { width: CW },
+    ML,
+    signerBannerY + COL_HDR_H + 2,
+    { width: CW },
   );
 
   const signerColHdrY = signerBannerY + COL_HDR_H + 14;
@@ -404,7 +686,9 @@ function generateScenario4(outputPath) {
   doc.fillColor("#9ca3af").fontSize(6.5).font("Helvetica");
   doc.text(
     `Page 1 of ${TOTAL_PAGES}  •  Confidential — For authorized use only`,
-    ML, curY + 10, { width: CW, align: "center" },
+    ML,
+    curY + 10,
+    { width: CW, align: "center" },
   );
 
   // Pages 2-9: additional entity filler pages
@@ -414,19 +698,30 @@ function generateScenario4(outputPath) {
 
   // Page 10: machine-readable data
   machineReadablePage(doc, [
-    { label: "Banking Contact Authorization", contacts: bankingContacts, positions: bankingPositions },
-    { label: "Signer Authorization",          contacts: signerContacts,  positions: signerPositions  },
+    {
+      label: "Banking Contact Authorization",
+      contacts: bankingContacts,
+      positions: bankingPositions,
+    },
+    {
+      label: "Signer Authorization",
+      contacts: signerContacts,
+      positions: signerPositions,
+    },
   ]);
 
   doc.end();
-  console.log(`Generated: ${path.resolve(outputPath)}  (${TOTAL_PAGES} pages, banking:${bankingContacts.length} signers:${signerContacts.length})`);
+  await done;
+  console.log(
+    `Generated: ${path.resolve(outputPath)}  (${TOTAL_PAGES} pages, banking:${bankingContacts.length} signers:${signerContacts.length})`,
+  );
 }
 
 // ── SCENARIO 5: Empty (markers present, zero contacts) ──────────────────────
 
-function generateScenario5(outputPath) {
+async function generateScenario5(outputPath) {
   const doc = new PDFDocument({ margin: 0, size: "A4" });
-  doc.pipe(fs.createWriteStream(outputPath));
+  const done = finishOn(doc, outputPath);
 
   pageHeader(doc);
   introParagraph(doc);
@@ -451,7 +746,12 @@ function generateScenario5(outputPath) {
   const endY = colHdrY + COL_HDR_H + 3 * ROW_H + 10;
   hLine(doc, endY);
   doc.fillColor("#9ca3af").fontSize(6.5).font("Helvetica");
-  doc.text("Page 1 of 2  •  Confidential — For authorized use only", ML, endY + 4, { width: CW, align: "center" });
+  doc.text(
+    "Page 1 of 2  •  Confidential — For authorized use only",
+    ML,
+    endY + 4,
+    { width: CW, align: "center" },
+  );
 
   // Machine-readable page with no contacts — empty groups
   doc.addPage();
@@ -465,17 +765,21 @@ function generateScenario5(outputPath) {
   mr("===CONTACT_DATA_END===");
 
   doc.end();
+  await done;
   console.log(`Generated: ${path.resolve(outputPath)}  (empty — 0 contacts)`);
 }
 
-// ── Run all ──────────────────────────────────────────────────────────────────
+// ── Run all sequentially (each file fully flushed before the next starts) ────
 
 const OUT = __dirname;
 
-generateScenario1(path.join(OUT, "scenario1_existing.pdf"));
-generateScenario2(path.join(OUT, "scenario2_authorised_only.pdf"));
-generateScenario3(path.join(OUT, "scenario3_banking_only.pdf"));
-generateScenario4(path.join(OUT, "scenario4_both_10pages.pdf"));
-generateScenario5(path.join(OUT, "scenario5_empty.pdf"));
-
-console.log("\nDone. Copy the PDFs to frontend/public/ to make them available via the dev server.");
+(async () => {
+  await generateScenario1(path.join(OUT, "scenario1_existing.pdf"));
+  await generateScenario2(path.join(OUT, "scenario2_authorised_only.pdf"));
+  await generateScenario3(path.join(OUT, "scenario3_banking_only.pdf"));
+  await generateScenario4(path.join(OUT, "scenario4_both_10pages.pdf"));
+  await generateScenario5(path.join(OUT, "scenario5_empty.pdf"));
+  console.log(
+    "\nDone. Copy the PDFs to frontend/public/ to make them available via the dev server.",
+  );
+})();

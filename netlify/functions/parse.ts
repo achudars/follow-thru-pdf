@@ -5,6 +5,7 @@ import { v4 as uuidv4 } from 'uuid'
 // eslint-disable-next-line @typescript-eslint/no-require-imports
 const pdfParse = require('pdf-parse/lib/pdf-parse') as (
   buffer: Buffer,
+  options?: { version?: string },
 ) => Promise<{ text: string }>
 
 // ── Types (mirror frontend/src/types/index.ts) ────────────────────────────────
@@ -159,7 +160,7 @@ export const handler: Handler = async (event: HandlerEvent) => {
     }
 
     const buffer = Buffer.from(body.fileData, 'base64')
-    const { text } = await pdfParse(buffer)
+    const { text } = await pdfParse(buffer, { version: 'v1.10.100' })
     const result = parseSection(text, body.fileName ?? 'document.pdf')
 
     return { statusCode: 200, headers: CORS_HEADERS, body: JSON.stringify(result) }
