@@ -46,33 +46,39 @@ export default function ContactList({
                         {/* Contact items */}
                         {!isCollapsed && (
                             <ul>
-                                {group.contacts.map((contact) => {
-                                    const isSelected = contact.id === selectedContactId
-                                    const displayed = editedContacts[contact.id] ?? contact
-                                    return (
-                                        <li key={contact.id}>
-                                            <button
-                                                onClick={() => onSelectContact(contact.id)}
-                                                className={[
-                                                    'w-full flex items-center gap-2.5 px-5 py-2 text-left transition-colors',
-                                                    isSelected
-                                                        ? 'bg-blue-50 text-blue-700'
-                                                        : 'text-gray-600 hover:bg-gray-50',
-                                                ].join(' ')}
-                                            >
-                                                <span
-                                                    className={`w-1.5 h-1.5 rounded-full shrink-0 ${isSelected ? 'bg-blue-600' : 'bg-gray-300'
-                                                        }`}
-                                                />
-                                                <span
-                                                    className={`text-xs truncate ${isSelected ? 'font-semibold' : 'font-medium'}`}
+                                {group.contacts.length === 0 ? (
+                                    <li className="px-5 py-3 text-xs text-gray-400 italic">
+                                        No contacts in this group
+                                    </li>
+                                ) : (
+                                    group.contacts.map((contact) => {
+                                        const isSelected = contact.id === selectedContactId
+                                        const displayed = editedContacts[contact.id] ?? contact
+                                        return (
+                                            <li key={contact.id}>
+                                                <button
+                                                    onClick={() => onSelectContact(contact.id)}
+                                                    className={[
+                                                        'w-full flex items-center gap-2.5 px-5 py-2 text-left transition-colors',
+                                                        isSelected
+                                                            ? 'bg-blue-50 text-blue-700'
+                                                            : 'text-gray-600 hover:bg-gray-50',
+                                                    ].join(' ')}
                                                 >
-                                                    {displayed.fullLegalName}
-                                                </span>
-                                            </button>
-                                        </li>
-                                    )
-                                })}
+                                                    <span
+                                                        className={`w-1.5 h-1.5 rounded-full shrink-0 ${isSelected ? 'bg-blue-600' : 'bg-gray-300'
+                                                            }`}
+                                                    />
+                                                    <span
+                                                        className={`text-xs truncate ${isSelected ? 'font-semibold' : 'font-medium'}`}
+                                                    >
+                                                        {displayed.fullLegalName}
+                                                    </span>
+                                                </button>
+                                            </li>
+                                        )
+                                    })
+                                )}
                             </ul>
                         )}
                     </div>

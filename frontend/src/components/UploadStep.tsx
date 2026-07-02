@@ -15,21 +15,32 @@ export default function UploadStep({ loading, error, onFileAccepted }: Props) {
         [onFileAccepted],
     )
 
-    const [sampleLoading, setSampleLoading] = useState(false)
+    const [sampleLoading, setSampleLoading] = useState<string | null>(null)
 
-    const handleUseSample = useCallback(async () => {
-        setSampleLoading(true)
-        try {
-            const res = await fetch('/banking_contact_authorization.pdf')
-            const blob = await res.blob()
-            const file = new File([blob], 'banking_contact_authorization.pdf', {
-                type: 'application/pdf',
-            })
-            onFileAccepted(file)
-        } finally {
-            setSampleLoading(false)
-        }
-    }, [onFileAccepted])
+    const handleUseSample = useCallback(
+        async (filename: string) => {
+            setSampleLoading(filename)
+            try {
+                const res = await fetch(`/${filename}`)
+                const blob = await res.blob()
+                const file = new File([blob], filename, {
+                    type: 'application/pdf',
+                })
+                onFileAccepted(file)
+            } finally {
+                setSampleLoading(null)
+            }
+        },
+        [onFileAccepted],
+    )
+
+    const samples = [
+        { filename: 'sample-full.pdf', label: 'Full Form (7+2)', desc: 'Banking + Signers' },
+        { filename: 'sample-banking-only.pdf', label: 'Banking Only (5)', desc: '5 banking contacts' },
+        { filename: 'sample-signers-only.pdf', label: 'Signers Only (3)', desc: '3 signer authorizations' },
+        { filename: 'sample-large.pdf', label: 'Large Form (20+5)', desc: 'Multi-page, 25 contacts' },
+        { filename: 'sample-empty.pdf', label: 'Empty Form (0)', desc: 'No contacts submitted' },
+    ]
 
     const { getRootProps, getInputProps, isDragActive } = useDropzone({
         onDrop,
@@ -129,32 +140,72 @@ export default function UploadStep({ loading, error, onFileAccepted }: Props) {
                     )}
                 </div>
 
-                {/* Demo shortcut */}
+                {/* Demo shortcuts */}
                 {!loading && (
-                    <div className="mt-5 flex items-center gap-3">
-                        <div className="flex-1 h-px bg-gray-200" />
-                        <span className="text-xs text-gray-400">or</span>
-                        <div className="flex-1 h-px bg-gray-200" />
-                    </div>
-                )}
-                {!loading && (
-                    <button
-                        onClick={handleUseSample}
-                        disabled={sampleLoading}
-                        className="mt-3 w-full flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl border border-gray-200 bg-white hover:bg-gray-50 text-sm text-gray-600 font-medium transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
-                    >
-                        {sampleLoading ? (
-                            <svg className="animate-spin w-4 h-4 text-gray-400" fill="none" viewBox="0 0 24 24">
-                                <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
-                                <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8H4z" />
-                            </svg>
-                        ) : (
-                            <svg className="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                            </svg>
-                        )}
-                        {sampleLoading ? 'Loading…' : 'Use sample file  (banking_contact_authorization.pdf)'}
-                    </button>
+                    <>
+                        <div className="mt-5 flex items-center gap-3">
+                            <div className="flex-1 h-px bg-gray-200" />
+                            <span className="text-xs text-gray-400">or try a demo scenario</span>
+                            <div className="flex-1 h-px bg-gray-200" />
+                        </div>
+                        <div className="mt-4 grid grid-cols-2 gap-2">
+                            {samples.map((s) => {
+                                const isLoading = sampleLoading === s.filename
+                                return (
+                                    <button
+                                        key={s.filename}
+                                        onClick={() => handleUseSample(s.filename)}
+                                        disabled={!!sampleLoading}
+                                        className="flex flex-col items-start gap-0.5 px-3 py-2 rounded-lg border border-gray-200 bg-white hover:bg-gray-50 hover:border-gray-300 text-left transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                                    >
+                                        <div className="flex items-center gap-1.5 w-full">
+                                            {isLoading ? (
+                                                <svg
+                                                    className="animate-spin w-3.5 h-3.5 text-blue-600 shrink-0"
+                                                    fill="none"
+                                                    viewBox="0 0 24 24"
+                                                >
+                                                    <circle
+                                                        className="opacity-25"
+                                                        cx="12"
+                                                        cy="12"
+                                                        r="10"
+                                                        stroke="currentColor"
+                                                        strokeWidth="4"
+                                                    />
+                                                    <path
+                                                        className="opacity-75"
+                                                        fill="currentColor"
+                                                        d="M4 12a8 8 0 018-8v8H4z"
+                                                    />
+                                                </svg>
+                                            ) : (
+                                                <svg
+                                                    className="w-3.5 h-3.5 text-gray-400 shrink-0"
+                                                    fill="none"
+                                                    stroke="currentColor"
+                                                    viewBox="0 0 24 24"
+                                                >
+                                                    <path
+                                                        strokeLinecap="round"
+                                                        strokeLinejoin="round"
+                                                        strokeWidth={2}
+                                                        d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
+                                                    />
+                                                </svg>
+                                            )}
+                                            <span className="text-xs font-semibold text-gray-700 truncate">
+                                                {s.label}
+                                            </span>
+                                        </div>
+                                        <span className="text-[11px] text-gray-500 leading-tight ml-5">
+                                            {s.desc}
+                                        </span>
+                                    </button>
+                                )
+                            })}
+                        </div>
+                    </>
                 )}
 
                 {/* Error */}

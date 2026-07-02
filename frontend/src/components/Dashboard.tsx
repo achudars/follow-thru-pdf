@@ -62,31 +62,37 @@ export default function Dashboard({
 
                 <div className="flex items-center gap-3">
                     {/* Contact navigator */}
-                    <div className="flex items-center gap-1 text-gray-600">
-                        <button
-                            disabled={currentIndex <= 0}
-                            onClick={() => navigate(-1)}
-                            className="p-1 rounded hover:bg-gray-100 disabled:opacity-30 disabled:cursor-not-allowed transition-colors"
-                            title="Previous contact"
-                        >
-                            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-                            </svg>
-                        </button>
-                        <span className="text-xs min-w-[90px] text-center select-none">
-                            Contact {currentIndex + 1} of {total}
+                    {total > 0 ? (
+                        <div className="flex items-center gap-1 text-gray-600">
+                            <button
+                                disabled={currentIndex <= 0}
+                                onClick={() => navigate(-1)}
+                                className="p-1 rounded hover:bg-gray-100 disabled:opacity-30 disabled:cursor-not-allowed transition-colors"
+                                title="Previous contact"
+                            >
+                                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                                </svg>
+                            </button>
+                            <span className="text-xs min-w-[90px] text-center select-none">
+                                Contact {currentIndex + 1} of {total}
+                            </span>
+                            <button
+                                disabled={currentIndex >= total - 1}
+                                onClick={() => navigate(1)}
+                                className="p-1 rounded hover:bg-gray-100 disabled:opacity-30 disabled:cursor-not-allowed transition-colors"
+                                title="Next contact"
+                            >
+                                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                                </svg>
+                            </button>
+                        </div>
+                    ) : (
+                        <span className="text-xs text-gray-500">
+                            No contacts in this form
                         </span>
-                        <button
-                            disabled={currentIndex >= total - 1}
-                            onClick={() => navigate(1)}
-                            className="p-1 rounded hover:bg-gray-100 disabled:opacity-30 disabled:cursor-not-allowed transition-colors"
-                            title="Next contact"
-                        >
-                            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                            </svg>
-                        </button>
-                    </div>
+                    )}
 
                     <button
                         onClick={onIngest}
@@ -111,7 +117,27 @@ export default function Dashboard({
 
                 {/* Middle — contact details */}
                 <main className="w-80 shrink-0 border-r border-gray-200 bg-white overflow-y-auto">
-                    {selectedContact ? (
+                    {total === 0 ? (
+                        <div className="flex flex-col items-center justify-center h-full text-center px-6">
+                            <svg
+                                className="w-12 h-12 text-gray-300 mb-3"
+                                fill="none"
+                                stroke="currentColor"
+                                viewBox="0 0 24 24"
+                            >
+                                <path
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                    strokeWidth={1.5}
+                                    d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
+                                />
+                            </svg>
+                            <p className="text-sm font-medium text-gray-700">No Contacts Found</p>
+                            <p className="text-xs text-gray-400 mt-1">
+                                This form does not contain any<br />banking or signer authorizations
+                            </p>
+                        </div>
+                    ) : selectedContact ? (
                         <ContactDetails
                             contact={selectedContact}
                             onChange={(updated) => onContactChange(selectedContact.id, updated)}
