@@ -33,7 +33,12 @@ Everything deploys to **Netlify** as a single repo. No separate backend service 
 
 ## How it works
 
-1. **Upload** — drag & drop a PDF, or click **Use sample file** for an instant demo
+1. **Upload** — drag & drop a PDF, or choose from **5 demo scenarios**:
+   - Full Form (7 banking + 2 signer contacts)
+   - Banking Only (5 contacts)
+   - Signers Only (3 contacts)
+   - Large Multi-Page Form (20 banking + 5 signers)
+   - Empty Form (zero contacts)
 2. **Parse** — base64-encoded and sent to `/api/parse`. The function uses `pdf-parse` to extract text, finds the `===CONTACT_DATA_BEGIN===` block, reads one `contact:` line per person
 3. **Dashboard** — three panels:
    - **Left** — collapsible contact groups
@@ -67,7 +72,7 @@ npm test
 npm run dev
 ```
 
-Open **http://localhost:8888** and click **Use sample file** or upload your own PDF.
+Open **http://localhost:8888** and choose any of the 5 demo scenarios or upload your own PDF.
 
 ---
 
