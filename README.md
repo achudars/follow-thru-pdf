@@ -51,14 +51,14 @@ Everything deploys to **Netlify** as a single repo. No separate backend service 
 
 ## Design decisions
 
-| Decision | Reason |
-|---|---|
-| Netlify Functions (TypeScript) | No separate server; same language as the frontend |
-| Machine-readable block in PDF | Deterministic parsing — no OCR or positional heuristics |
-| Base64 JSON body | Simpler than multipart in a serverless function |
-| Percentage-based highlight overlay | Scale-independent at any zoom level |
-| `useFsAccessApi: false` in react-dropzone | File System Access API is blocked in many contexts |
-| Fixture-based round-trip test | pdf-parse bundles webpack which conflicts with vite; pre-extracted .txt fixture avoids the clash |
+| Decision                                  | Reason                                                                                           |
+| ----------------------------------------- | ------------------------------------------------------------------------------------------------ |
+| Netlify Functions (TypeScript)            | No separate server; same language as the frontend                                                |
+| Machine-readable block in PDF             | Deterministic parsing — no OCR or positional heuristics                                          |
+| Base64 JSON body                          | Simpler than multipart in a serverless function                                                  |
+| Percentage-based highlight overlay        | Scale-independent at any zoom level                                                              |
+| `useFsAccessApi: false` in react-dropzone | File System Access API is blocked in many contexts                                               |
+| Fixture-based round-trip test             | pdf-parse bundles webpack which conflicts with vite; pre-extracted .txt fixture avoids the clash |
 
 ---
 
