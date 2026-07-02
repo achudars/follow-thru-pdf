@@ -19,25 +19,25 @@ Dashboard for uploading a Banking Contact Authorization PDF, reviewing the extra
 
 ### Demo scenarios
 
-<details>
-<summary>Click to view all 5 demo scenarios</summary>
-
 #### Scenario 1: Existing contacts (full form)
+
 ![Full form with banking and signer contacts](docs/screenshot-scenario1-existing.png)
 
 #### Scenario 2: Authorized signers only
+
 ![Form with only signer authorizations](docs/screenshot-scenario2-authorised-only.png)
 
 #### Scenario 3: Banking contacts only
+
 ![Form with only banking contacts](docs/screenshot-scenario3-banking-only.png)
 
 #### Scenario 4: Large multi-page form
+
 ![Multi-page form with many contacts](docs/screenshot-scenario4-both-10pages.png)
 
 #### Scenario 5: Empty form
-![Form with no contacts](docs/screenshot-scenario5-empty.png)
 
-</details>
+![Form with no contacts](docs/screenshot-scenario5-empty.png)
 
 ---
 
