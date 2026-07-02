@@ -17,3 +17,6 @@ deno.lock
 # Logs
 *.log
 npm-debug.log*
+
+# Crash dumps
+*.stackdump
