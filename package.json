@@ -17,7 +17,7 @@
     "@types/pdf-parse": "^1.1.5",
     "@types/uuid": "^11.0.0",
     "netlify-cli": "^26.2.0",
-    "typescript": "^5.9.3",
+    "typescript": "^7.0.2",
     "vitest": "^4.1.10"
   }
 }
