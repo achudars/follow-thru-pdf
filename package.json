@@ -9,7 +9,7 @@
     "test:watch": "vitest"
   },
   "dependencies": {
-    "@netlify/functions": "^5.3.0",
+    "@netlify/functions": "^6.0.0",
     "pdf-parse": "^1.1.4",
     "uuid": "^14.0.2"
   },
@@ -18,6 +18,6 @@
     "@types/uuid": "^11.0.0",
     "netlify-cli": "^27.8.0",
     "typescript": "^7.0.2",
-    "vitest": "^4.1.11"
+    "vitest": "^5.0.1"
   }
 }
