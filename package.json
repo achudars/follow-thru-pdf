@@ -9,15 +9,15 @@
     "test:watch": "vitest"
   },
   "dependencies": {
-    "@netlify/functions": "^6.0.0",
+    "@netlify/functions": "^6.0.1",
     "pdf-parse": "^1.1.4",
     "uuid": "^14.0.2"
   },
   "devDependencies": {
     "@types/pdf-parse": "^1.1.5",
     "@types/uuid": "^11.0.0",
-    "netlify-cli": "^27.10.1",
+    "netlify-cli": "^27.10.2",
     "typescript": "^7.0.2",
-    "vitest": "^5.0.2"
+    "vitest": "^5.0.3"
   }
 }
