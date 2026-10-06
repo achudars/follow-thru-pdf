@@ -16,7 +16,7 @@
   "devDependencies": {
     "@types/pdf-parse": "^1.1.5",
     "@types/uuid": "^11.0.0",
-    "netlify-cli": "^27.10.2",
+    "netlify-cli": "^27.11.2",
     "typescript": "^7.0.2",
     "vitest": "^5.0.3"
   }
